@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import { useState } from "react"
 import { Link, useNavigate } from "react-router-dom"
 import { login } from "../../managers/authManager"
@@ -5,7 +6,7 @@ import { Button, FormFeedback, FormGroup, Input, Label } from "reactstrap"
 
 export default function Login({ setLoggedInUser }) {
   const navigate = useNavigate()
-  const [email, setEmail] = useState("admina@strator.comx")
+  const [email, setEmail] = useState("charlie@kelly.com")
   const [password, setPassword] = useState("password")
   const [failedLogin, setFailedLogin] = useState(false)
 

@@ -1,27 +1,28 @@
-import { useState } from "react";
-import { register } from "../../managers/authManager";
-import { Link, useNavigate } from "react-router-dom";
-import { Button, FormFeedback, FormGroup, Input, Label } from "reactstrap";
+/* eslint-disable react/prop-types */
+import { useState } from "react"
+import { register } from "../../managers/authManager"
+import { Link, useNavigate } from "react-router-dom"
+import { Button, FormFeedback, FormGroup, Input, Label } from "reactstrap"
 
 export default function Register({ setLoggedInUser }) {
-  const [firstName, setFirstName] = useState("");
-  const [lastName, setLastName] = useState("");
-  const [userName, setUserName] = useState("");
-  const [email, setEmail] = useState("");
-  const [address, setAddress] = useState("");
-  const [password, setPassword] = useState("");
-  const [confirmPassword, setConfirmPassword] = useState("");
+  const [firstName, setFirstName] = useState("")
+  const [lastName, setLastName] = useState("")
+  const [userName, setUserName] = useState("")
+  const [email, setEmail] = useState("")
+  const [address, setAddress] = useState("")
+  const [password, setPassword] = useState("")
+  const [confirmPassword, setConfirmPassword] = useState("")
 
-  const [passwordMismatch, setPasswordMismatch] = useState();
-  const [registrationFailure, setRegistrationFailure] = useState(false);
+  const [passwordMismatch, setPasswordMismatch] = useState()
+  const [registrationFailure, setRegistrationFailure] = useState(false)
 
-  const navigate = useNavigate();
+  const navigate = useNavigate()
 
   const handleSubmit = (e) => {
-    e.preventDefault();
+    e.preventDefault()
 
     if (password !== confirmPassword) {
-      setPasswordMismatch(true);
+      setPasswordMismatch(true)
     } else {
       const newUser = {
         firstName,
@@ -30,17 +31,17 @@ export default function Register({ setLoggedInUser }) {
         email,
         address,
         password,
-      };
+      }
       register(newUser).then((user) => {
         if (user) {
-          setLoggedInUser(user);
-          navigate("/");
+          setLoggedInUser(user)
+          navigate("/")
         } else {
-          setRegistrationFailure(true);
+          setRegistrationFailure(true)
         }
-      });
+      })
     }
-  };
+  }
 
   return (
     <div className="container" style={{ maxWidth: "500px" }}>
@@ -51,7 +52,7 @@ export default function Register({ setLoggedInUser }) {
           type="text"
           value={firstName}
           onChange={(e) => {
-            setFirstName(e.target.value);
+            setFirstName(e.target.value)
           }}
         />
       </FormGroup>
@@ -61,7 +62,7 @@ export default function Register({ setLoggedInUser }) {
           type="text"
           value={lastName}
           onChange={(e) => {
-            setLastName(e.target.value);
+            setLastName(e.target.value)
           }}
         />
       </FormGroup>
@@ -71,7 +72,7 @@ export default function Register({ setLoggedInUser }) {
           type="email"
           value={email}
           onChange={(e) => {
-            setEmail(e.target.value);
+            setEmail(e.target.value)
           }}
         />
       </FormGroup>
@@ -81,7 +82,7 @@ export default function Register({ setLoggedInUser }) {
           type="text"
           value={userName}
           onChange={(e) => {
-            setUserName(e.target.value);
+            setUserName(e.target.value)
           }}
         />
       </FormGroup>
@@ -91,7 +92,7 @@ export default function Register({ setLoggedInUser }) {
           type="text"
           value={address}
           onChange={(e) => {
-            setAddress(e.target.value);
+            setAddress(e.target.value)
           }}
         />
       </FormGroup>
@@ -102,8 +103,8 @@ export default function Register({ setLoggedInUser }) {
           type="password"
           value={password}
           onChange={(e) => {
-            setPasswordMismatch(false);
-            setPassword(e.target.value);
+            setPasswordMismatch(false)
+            setPassword(e.target.value)
           }}
         />
       </FormGroup>
@@ -114,8 +115,8 @@ export default function Register({ setLoggedInUser }) {
           type="password"
           value={confirmPassword}
           onChange={(e) => {
-            setPasswordMismatch(false);
-            setConfirmPassword(e.target.value);
+            setPasswordMismatch(false)
+            setConfirmPassword(e.target.value)
           }}
         />
         <FormFeedback>Passwords do not match!</FormFeedback>
@@ -134,5 +135,5 @@ export default function Register({ setLoggedInUser }) {
         Already signed up? Log in <Link to="/login">here</Link>
       </p>
     </div>
-  );
+  )
 }

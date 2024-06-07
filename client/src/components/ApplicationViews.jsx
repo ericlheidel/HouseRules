@@ -1,58 +1,13 @@
+/* eslint-disable react/prop-types */
 import { Route, Routes } from "react-router-dom"
-import Bikes from "./bikes/Bikes"
-import { AuthorizedRoute } from "./auth/AuthorizedRoute"
 import Login from "./auth/Login"
 import Register from "./auth/Register"
-import WorkOrderList from "./workorders/WorkOrderList.jsx"
-import CreateWorkOrder from "./workorders/CreateWorkOrder.jsx"
-import UserProfileList from "./userprofiles/UserProfileList.jsx"
 
+// eslint-disable-next-line no-unused-vars
 export default function ApplicationViews({ loggedInUser, setLoggedInUser }) {
   return (
     <Routes>
       <Route path="/">
-        <Route
-          index
-          element={
-            <AuthorizedRoute loggedInUser={loggedInUser}>
-              <Bikes />
-            </AuthorizedRoute>
-          }
-        />
-        <Route
-          path="bikes"
-          element={
-            <AuthorizedRoute loggedInUser={loggedInUser}>
-              <Bikes />
-            </AuthorizedRoute>
-          }
-        />
-        <Route path="workorders">
-          <Route
-            index
-            element={
-              <AuthorizedRoute loggedInUser={loggedInUser}>
-                <WorkOrderList />
-              </AuthorizedRoute>
-            }
-          />
-          <Route
-            path="create"
-            element={
-              <AuthorizedRoute loggedInUser={loggedInUser}>
-                <CreateWorkOrder />
-              </AuthorizedRoute>
-            }
-          />
-        </Route>
-        <Route
-          path="employees"
-          element={
-            <AuthorizedRoute roles={["Admin"]} loggedInUser={loggedInUser}>
-              <UserProfileList />
-            </AuthorizedRoute>
-          }
-        />
         <Route
           path="login"
           element={<Login setLoggedInUser={setLoggedInUser} />}
