@@ -32,8 +32,8 @@ public class UserProfileController : ControllerBase
                 FirstName = up.FirstName,
                 LastName = up.LastName,
                 Address = up.Address,
-                UserName = up.UserName,
-                Email = up.Email,
+                UserName = up.IdentityUser.UserName,
+                Email = up.IdentityUser.Email,
                 IdentityUserId = up.IdentityUser.Id
             })
             .ToList());
@@ -51,8 +51,8 @@ public class UserProfileController : ControllerBase
             FirstName = up.FirstName,
             LastName = up.LastName,
             Address = up.Address,
-            Email = up.Email,
-            UserName = up.UserName,
+            Email = up.IdentityUser.Email,
+            UserName = up.IdentityUser.UserName,
             IdentityUserId = up.IdentityUser.Id,
             Roles = _dbContext.UserRoles
             .Where(ur => ur.UserId == up.IdentityUserId)

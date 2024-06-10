@@ -106,6 +106,7 @@ public class ChoreController : ControllerBase
     //This endpoint can return a 204 No Content response once it has created the completion.
 
     [HttpPost("{id}/complete")]
+    // "/api/chore/{id}/complete?userId={userId}
     // [Authorize]
     public IActionResult CompleteChore(int id, [FromQuery] int userId)
     {
@@ -156,4 +157,86 @@ public class ChoreController : ControllerBase
 
         return NoContent();
     }
+
+    [HttpPut("{id}")]
+    // [Authorize]
+    public IActionResult UpdateChore(Chore chore, int id)
+    {
+        Chore choreToUpdate = _dbContext.Chore.SingleOrDefault(c => c.Id == id);
+
+        if (choreToUpdate == null)
+        {
+            return NotFound();
+        }
+
+        choreToUpdate.Name = chore.Name;
+        choreToUpdate.Difficulty = chore.Difficulty;
+        choreToUpdate.ChoreFrequencyDays = chore.ChoreFrequencyDays;
+
+        _dbContext.SaveChanges();
+
+        return NoContent();
+    }
+
+    [HttpDelete("{id}")]
+    // [Authorize]
+    public IActionResult DeleteChore(int id)
+    {
+        Chore choreToDelete = _dbContext.Chore.SingleOrDefault(c => c.Id == id);
+
+        if (choreToDelete == null)
+        {
+            return NotFound();
+        }
+
+        _dbContext.Remove(choreToDelete);
+        _dbContext.SaveChanges();
+
+        return NoContent();
+    }
+
+    [HttpPost("{id}/assign")]
+    // "/api/chore/{id}?userId={userId}
+    // [Authorize]
+    public IActionResult AssignChore(int id, [FromQuery] int userId)
+    {
+        // This endpoint will assign a chore to a user.
+        // Pass the userId in as a query string param, as in the completion endpoint above.
+        // This endpoint can return a 204 response.
+
+        ChoreAssignment newChoreAssignment = new ChoreAssignment
+        {
+            UserProfileId = userId,
+            ChoreId = id
+        };
+
+        _dbContext.ChoreAssignment.Add(newChoreAssignment);
+        _dbContext.SaveChanges();
+
+        return NoContent();
+    }
+
+    [HttpPost("{id}/unassign")]
+    // "/api/chore/{id}/unassign?userId={userId}
+    // [Authorize]
+    public IActionResult UnassignChore(int id, [FromQuery] int userId)
+    {
+        // This endpoint will unassign a chore to a user.
+        // Pass the userId in as a query string param, as in the other endpoints above.
+
+        ChoreAssignment choreAssignmentToDelete =
+        _dbContext.ChoreAssignment.SingleOrDefault(
+            ca => ca.UserProfileId == userId && ca.ChoreId == id);
+
+        if (choreAssignmentToDelete == null)
+        {
+            return NotFound();
+        }
+
+        _dbContext.ChoreAssignment.Remove(choreAssignmentToDelete);
+        _dbContext.SaveChanges();
+
+        return NoContent();
+    }
+
 }

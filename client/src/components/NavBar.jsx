@@ -28,7 +28,19 @@ export default function NavBar({ loggedInUser, setLoggedInUser }) {
           <>
             <NavbarToggler onClick={toggleNavbar} />
             <Collapse isOpen={open} navbar>
-              <Nav navbar></Nav>
+              <Nav navbar>
+                {loggedInUser.roles.includes("Admin") && (
+                  <NavItem>
+                    <NavLink
+                      className="m-auto"
+                      tag={RRNavLink}
+                      to="/userprofiles"
+                    >
+                      Users
+                    </NavLink>
+                  </NavItem>
+                )}
+              </Nav>
             </Collapse>
             <Button
               color="primary"

@@ -6,7 +6,7 @@ import { Button, FormFeedback, FormGroup, Input, Label } from "reactstrap"
 
 export default function Login({ setLoggedInUser }) {
   const navigate = useNavigate()
-  const [email, setEmail] = useState("charlie@kelly.com")
+  const [email, setEmail] = useState("frank@reynolds.com")
   const [password, setPassword] = useState("password")
   const [failedLogin, setFailedLogin] = useState(false)
 
