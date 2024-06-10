@@ -41,6 +41,13 @@ export default function NavBar({ loggedInUser, setLoggedInUser }) {
                   </NavItem>
                 )}
               </Nav>
+              <Nav navbar>
+                <NavItem>
+                  <NavLink className="m-auto" tag={RRNavLink} to="/chores">
+                    Chores
+                  </NavLink>
+                </NavItem>
+              </Nav>
             </Collapse>
             <Button
               color="primary"

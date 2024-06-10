@@ -9,7 +9,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace HouseRules.Migrations
 {
     /// <inheritdoc />
-    public partial class Create : Migration
+    public partial class Seed : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -258,7 +258,7 @@ namespace HouseRules.Migrations
             migrationBuilder.InsertData(
                 table: "AspNetUsers",
                 columns: new[] { "Id", "AccessFailedCount", "ConcurrencyStamp", "Email", "EmailConfirmed", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UserName" },
-                values: new object[] { "dbc40bc6-0829-4ac5-a3ed-180f5e916a5f", 0, "2c478907-accc-470f-aea7-c338bf9309a7", "charlie@kelly.com", false, false, null, null, null, "AQAAAAIAAYagAAAAEFnrJjpr43h+bT3SdaUdEB0JnsHruf/l/klZxk33r+v3wjMeDgtsZ6urhYXFO0I7bg==", null, false, "fde3d746-0e34-4b33-b178-6119f0ea54fa", false, "Adminastrator" });
+                values: new object[] { "dbc40bc6-0829-4ac5-a3ed-180f5e916a5f", 0, "6a0a29ff-1dc3-48e6-8135-5767dc6cc6dc", "charlie@kelly.com", false, false, null, null, null, "AQAAAAIAAYagAAAAEFMkXNdeWx+2MTBda0Rlilsqnh6oZkVHpqody+D0rSGkHlLC7cCHluZCBSzB1wbkqA==", null, false, "47036e01-bbf6-4e21-a8c2-224142499baa", false, "Adminastrator" });
 
             migrationBuilder.InsertData(
                 table: "Chore",
@@ -301,7 +301,7 @@ namespace HouseRules.Migrations
             migrationBuilder.InsertData(
                 table: "ChoreCompletion",
                 columns: new[] { "Id", "ChoreId", "CompletedOn", "UserProfileId" },
-                values: new object[] { 1, 1, new DateTime(2024, 6, 6, 16, 42, 38, 924, DateTimeKind.Local).AddTicks(4940), 1 });
+                values: new object[] { 1, 1, new DateTime(2024, 6, 9, 16, 34, 30, 237, DateTimeKind.Local).AddTicks(4710), 1 });
 
             migrationBuilder.CreateIndex(
                 name: "IX_AspNetRoleClaims_RoleId",

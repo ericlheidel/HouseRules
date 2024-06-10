@@ -26,17 +26,24 @@ export const UserProfileDetails = () => {
         className="mt-5
       "
       >
-        <u>Current Chores ({user.choreAssignments?.length})</u>
+        <u>Current Chores</u>
         {user.choreAssignments?.map((ca) => {
-          return (
-            <div key={ca.id} className="mt-3">
-              {ca.chore.name}
-            </div>
-          )
+          {
+            return (
+              <div key={ca.id} className="mt-3">
+                {ca.chore.choreCompletions == null && ca.chore.name}
+              </div>
+            )
+          }
+          // return (
+          //   <div key={ca.id} className="mt-3">
+          //     {ca.chore.name}
+          //   </div>
+          // )
         })}
       </h3>
       <h3 className="mt-5">
-        <u>Completed Chores ({user.choreCompletions?.length})</u>
+        <u>Completed Chores</u>
       </h3>
       <h3>
         {user.choreCompletions?.map((cc) => {

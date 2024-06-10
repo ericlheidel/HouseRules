@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore;
 using HouseRules.Data;
 using HouseRules.Models;
 using HouseRules.Models.DTOs;
-using HouseRules.Migrations;
+// using HouseRules.Migrations;
 
 namespace HouseRules.Controllers;
 

@@ -7,6 +7,7 @@ import { Home } from "./home/Home.jsx"
 import { UserProfileList } from "./userprofiles/UserProfileList.jsx"
 import { UserProfileDetails } from "./userprofiles/UserProfileDetails.jsx"
 import { ChoresList } from "./chores/ChoresList.jsx"
+import { ChoreDetails } from "./chores/ChoreDetails.jsx"
 
 // eslint-disable-next-line no-unused-vars
 export default function ApplicationViews({ loggedInUser, setLoggedInUser }) {
@@ -45,14 +46,24 @@ export default function ApplicationViews({ loggedInUser, setLoggedInUser }) {
             </AuthorizedRoute>
           }
         />
-        <Route
-          path="chores"
-          element={
-            <AuthorizedRoute loggedInUser={loggedInUser}>
-              <ChoresList />
-            </AuthorizedRoute>
-          }
-        />
+        <Route path={"chores"}>
+          <Route
+            index
+            element={
+              <AuthorizedRoute loggedInUser={loggedInUser}>
+                <ChoresList loggedInUser={loggedInUser} />
+              </AuthorizedRoute>
+            }
+          />
+          <Route
+            path=":id"
+            element={
+              <AuthorizedRoute roles={["Admin"]} loggedInUser={loggedInUser}>
+                <ChoreDetails />
+              </AuthorizedRoute>
+            }
+          ></Route>
+        </Route>
       </Route>
     </Routes>
   )
