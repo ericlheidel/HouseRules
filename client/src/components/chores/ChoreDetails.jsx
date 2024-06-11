@@ -32,7 +32,7 @@ export const ChoreDetails = () => {
         {chore.choreFrequencyDays}
         {chore.choreFrequencyDays == 1 ? " Day" : " Days"}
       </h3>
-      <h3 className="mt-3">
+      <h3 className="mt-3`">
         Most Recently Completed on:
         {chore.choreCompletions
           ?.sort((a, b) => new Date(b.completedOn) - new Date(a.completedOn))

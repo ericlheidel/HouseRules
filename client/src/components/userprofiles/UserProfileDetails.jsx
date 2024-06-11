@@ -35,11 +35,6 @@ export const UserProfileDetails = () => {
               </div>
             )
           }
-          // return (
-          //   <div key={ca.id} className="mt-3">
-          //     {ca.chore.name}
-          //   </div>
-          // )
         })}
       </h3>
       <h3 className="mt-5">

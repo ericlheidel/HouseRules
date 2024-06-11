@@ -21,6 +21,14 @@ export const ChoresList = ({ loggedInUser }) => {
 
   return (
     <div>
+      <Button
+        color="warning"
+        onClick={() => {
+          navigate("/chores/create")
+        }}
+      >
+        Create Chore
+      </Button>
       {chores.map((c) => {
         return (
           <Card key={c.id} className="mt-3">

@@ -8,6 +8,7 @@ import { UserProfileList } from "./userprofiles/UserProfileList.jsx"
 import { UserProfileDetails } from "./userprofiles/UserProfileDetails.jsx"
 import { ChoresList } from "./chores/ChoresList.jsx"
 import { ChoreDetails } from "./chores/ChoreDetails.jsx"
+import { CreateChore } from "./chores/CreateChore.jsx"
 
 // eslint-disable-next-line no-unused-vars
 export default function ApplicationViews({ loggedInUser, setLoggedInUser }) {
@@ -62,7 +63,15 @@ export default function ApplicationViews({ loggedInUser, setLoggedInUser }) {
                 <ChoreDetails />
               </AuthorizedRoute>
             }
-          ></Route>
+          />
+          <Route
+            path="create"
+            element={
+              <AuthorizedRoute roles={["Admin"]} loggedInUser={loggedInUser}>
+                <CreateChore />
+              </AuthorizedRoute>
+            }
+          />
         </Route>
       </Route>
     </Routes>
