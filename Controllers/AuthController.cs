@@ -138,9 +138,11 @@ public class AuthController : ControllerBase
             _dbContext.UserProfile.Add(new UserProfile
             {
                 FirstName = registration.FirstName,
+                IdentityUserId = user.Id,
                 LastName = registration.LastName,
                 Address = registration.Address,
-                IdentityUserId = user.Id,
+                UserName = registration.UserName,
+                Email = registration.Email,
             });
             _dbContext.SaveChanges();
 

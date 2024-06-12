@@ -1,6 +1,10 @@
 /* eslint-disable react/prop-types */
 import { useEffect, useState } from "react"
-import { deleteChore, getChores } from "../../managers/choreManager.js"
+import {
+  completeChore,
+  deleteChore,
+  getChores,
+} from "../../managers/choreManager.js"
 import { Button, Card } from "reactstrap"
 import { useNavigate } from "react-router-dom"
 
@@ -15,6 +19,12 @@ export const ChoresList = ({ loggedInUser }) => {
 
   const handleDelete = (id) => {
     deleteChore(id).then(() => {
+      getChores().then(setChores)
+    })
+  }
+
+  const handleCompleteChore = (cId, userId) => {
+    completeChore(cId, userId).then(() => {
       getChores().then(setChores)
     })
   }
@@ -50,8 +60,28 @@ export const ChoresList = ({ loggedInUser }) => {
               {c.choreFrequencyDays}
               {c.choreFrequencyDays == 1 ? " Day" : " Days"}
             </h3>
+            <Button
+              block
+              className="mb-3"
+              color="primary"
+              onClick={() => {
+                handleCompleteChore(c.id, loggedInUser.id)
+              }}
+            >
+              Complete Chore
+            </Button>
             {loggedInUser.roles.includes("Admin") && (
               <div>
+                <Button
+                  block
+                  className="mb-3"
+                  color="success"
+                  onClick={() => {
+                    navigate(`/chores/${c.id}`)
+                  }}
+                >
+                  Details
+                </Button>
                 <Button
                   block
                   color="danger"
@@ -60,16 +90,6 @@ export const ChoresList = ({ loggedInUser }) => {
                   }}
                 >
                   Delete
-                </Button>
-                <Button
-                  block
-                  className="mt-3"
-                  color="success"
-                  onClick={() => {
-                    navigate(`/chores/${c.id}`)
-                  }}
-                >
-                  Details
                 </Button>
               </div>
             )}

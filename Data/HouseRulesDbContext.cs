@@ -31,12 +31,30 @@ public class HouseRulesDbContext : IdentityDbContext<IdentityUser>
             }
         });
 
-        modelBuilder.Entity<IdentityUser>().HasData(new IdentityUser
+        modelBuilder.Entity<IdentityUser>().HasData(new IdentityUser[]
         {
-            Id = "dbc40bc6-0829-4ac5-a3ed-180f5e916a5f",
-            UserName = "Adminastrator",
-            Email = "charlie@kelly.com",
-            PasswordHash = new PasswordHasher<IdentityUser>().HashPassword(null, _configuration["AdminPassword"])
+            new IdentityUser
+            {
+                Id = "dbc40bc6-0829-4ac5-a3ed-180f5e916a5f",
+                UserName = "Charlie",
+                Email = "charlie@kelly.com",
+                PasswordHash = new PasswordHasher<IdentityUser>().HashPassword(null, _configuration["AdminPassword"])
+            },
+            new IdentityUser
+            {
+                Id = "frt98wr5-0223-3ww7-t6rq-028g4r521d4e",
+                UserName = "Frank",
+                Email = "frank@reynolds.com",
+                PasswordHash = new PasswordHasher<IdentityUser>().HashPassword(null, _configuration["AdminPassword"])
+            },
+            new IdentityUser
+            {
+                Id = "hdp65oa9-3053-5ap0-z0hh-235t2a098h8q",
+                UserName = "Mac",
+                Email = "mac@mcdonald.com",
+                PasswordHash = new PasswordHasher<IdentityUser>().HashPassword(null, _configuration["AdminPassword"])
+            },
+
         });
 
         modelBuilder.Entity<IdentityUserRole<string>>().HasData(new IdentityUserRole<string>
@@ -45,15 +63,38 @@ public class HouseRulesDbContext : IdentityDbContext<IdentityUser>
             UserId = "dbc40bc6-0829-4ac5-a3ed-180f5e916a5f"
         });
 
-        modelBuilder.Entity<UserProfile>().HasData(new UserProfile
+        modelBuilder.Entity<UserProfile>().HasData(new UserProfile[]
         {
-            Id = 1,
-            IdentityUserId = "dbc40bc6-0829-4ac5-a3ed-180f5e916a5f",
-            FirstName = "Charlie",
-            LastName = "Kelly",
-            Address = "101 Main Street",
-            UserName = "Charlie",
-            Email = "charlie@kelly.com"
+            new UserProfile
+            {
+                Id = 1,
+                IdentityUserId = "dbc40bc6-0829-4ac5-a3ed-180f5e916a5f",
+                FirstName = "Charlie",
+                LastName = "Kelly",
+                Address = "101 Main Street",
+                UserName = "Charlie",
+                Email = "charlie@kelly.com"
+            },
+            new UserProfile
+            {
+                Id = 2,
+                IdentityUserId = "frt98wr5-0223-3ww7-t6rq-028g4r521d4e",
+                FirstName = "Frank",
+                LastName = "Reynolds",
+                Address = "222 Broadway Ave.",
+                UserName = "Frank",
+                Email = "frank@reynolds.com"
+            },
+            new UserProfile
+            {
+                Id = 3,
+                IdentityUserId = "hdp65oa9-3053-5ap0-z0hh-235t2a098h8q",
+                FirstName = "Mac",
+                LastName = "McDonald",
+                Address = "333 Broadway Ave.",
+                UserName = "Mac",
+                Email = "mac@mcdonald.com"
+            },
         });
 
         modelBuilder.Entity<Chore>().HasData(new Chore[]
@@ -157,6 +198,18 @@ public class HouseRulesDbContext : IdentityDbContext<IdentityUser>
                 Id = 2,
                 UserProfileId = 1,
                 ChoreId = 2
+            },
+            new ChoreAssignment
+            {
+                Id = 3,
+                UserProfileId = 1,
+                ChoreId = 3
+            },
+            new ChoreAssignment
+            {
+                Id = 4,
+                UserProfileId = 1,
+                ChoreId = 4
             }
         });
 
@@ -166,8 +219,15 @@ public class HouseRulesDbContext : IdentityDbContext<IdentityUser>
             {
                 Id = 1,
                 UserProfileId = 1,
-                ChoreId = 1,
+                ChoreId = 11,
                 CompletedOn = DateTime.Now.AddDays(-1)
+            },
+            new ChoreCompletion
+            {
+                Id = 2,
+                UserProfileId = 1,
+                ChoreId = 12,
+                CompletedOn = DateTime.Now.AddDays(-10)
             }
         });
     }

@@ -61,6 +61,38 @@ public class UserProfileController : ControllerBase
         }));
     }
 
+    [HttpGet("{id}/withroles")]
+    // [Authorize]
+    public IActionResult GetWithRolesById(int id)
+    {
+        UserProfileDTO userProfileDTO = _dbContext.UserProfile
+            .Include(up => up.IdentityUser)
+            .Where(up => up.Id == id)
+            .Select(up => new UserProfileDTO
+            {
+                Id = up.Id,
+                FirstName = up.FirstName,
+                LastName = up.LastName,
+                Address = up.Address,
+                Email = up.IdentityUser.Email,
+                UserName = up.IdentityUser.UserName,
+                IdentityUserId = up.IdentityUser.Id,
+                Roles = _dbContext.UserRoles
+                    .Where(ur => ur.UserId == up.IdentityUserId)
+                    .Select(ur => _dbContext.Roles.SingleOrDefault(r => r.Id == ur.RoleId).Name)
+                    .ToList()
+            })
+            .SingleOrDefault();
+
+        if (userProfileDTO == null)
+        {
+            return NotFound();
+        }
+
+        return Ok(userProfileDTO);
+    }
+
+
     [HttpGet("{id}")]
     // [Authorize]
     public IActionResult GetProfileById(int id)

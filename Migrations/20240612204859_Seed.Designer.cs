@@ -12,7 +12,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace HouseRules.Migrations
 {
     [DbContext(typeof(HouseRulesDbContext))]
-    [Migration("20240610213430_Seed")]
+    [Migration("20240612204859_Seed")]
     partial class Seed
     {
         /// <inheritdoc />
@@ -167,6 +167,18 @@ namespace HouseRules.Migrations
                             Id = 2,
                             ChoreId = 2,
                             UserProfileId = 1
+                        },
+                        new
+                        {
+                            Id = 3,
+                            ChoreId = 3,
+                            UserProfileId = 1
+                        },
+                        new
+                        {
+                            Id = 4,
+                            ChoreId = 4,
+                            UserProfileId = 1
                         });
                 });
 
@@ -199,8 +211,15 @@ namespace HouseRules.Migrations
                         new
                         {
                             Id = 1,
-                            ChoreId = 1,
-                            CompletedOn = new DateTime(2024, 6, 9, 16, 34, 30, 237, DateTimeKind.Local).AddTicks(4710),
+                            ChoreId = 11,
+                            CompletedOn = new DateTime(2024, 6, 11, 15, 48, 58, 694, DateTimeKind.Local).AddTicks(2450),
+                            UserProfileId = 1
+                        },
+                        new
+                        {
+                            Id = 2,
+                            ChoreId = 12,
+                            CompletedOn = new DateTime(2024, 6, 2, 15, 48, 58, 694, DateTimeKind.Local).AddTicks(2560),
                             UserProfileId = 1
                         });
                 });
@@ -229,8 +248,7 @@ namespace HouseRules.Migrations
                         .HasColumnType("text");
 
                     b.Property<string>("UserName")
-                        .HasMaxLength(50)
-                        .HasColumnType("character varying(50)");
+                        .HasColumnType("text");
 
                     b.HasKey("Id");
 
@@ -248,6 +266,26 @@ namespace HouseRules.Migrations
                             IdentityUserId = "dbc40bc6-0829-4ac5-a3ed-180f5e916a5f",
                             LastName = "Kelly",
                             UserName = "Charlie"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Address = "222 Broadway Ave.",
+                            Email = "frank@reynolds.com",
+                            FirstName = "Frank",
+                            IdentityUserId = "frt98wr5-0223-3ww7-t6rq-028g4r521d4e",
+                            LastName = "Reynolds",
+                            UserName = "Frank"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Address = "333 Broadway Ave.",
+                            Email = "mac@mcdonald.com",
+                            FirstName = "Mac",
+                            IdentityUserId = "hdp65oa9-3053-5ap0-z0hh-235t2a098h8q",
+                            LastName = "McDonald",
+                            UserName = "Mac"
                         });
                 });
 
@@ -378,15 +416,43 @@ namespace HouseRules.Migrations
                         {
                             Id = "dbc40bc6-0829-4ac5-a3ed-180f5e916a5f",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "6a0a29ff-1dc3-48e6-8135-5767dc6cc6dc",
+                            ConcurrencyStamp = "5286f8d0-7705-4b26-bab9-46f9d6f4ffd8",
                             Email = "charlie@kelly.com",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
-                            PasswordHash = "AQAAAAIAAYagAAAAEFMkXNdeWx+2MTBda0Rlilsqnh6oZkVHpqody+D0rSGkHlLC7cCHluZCBSzB1wbkqA==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEJ8O5A8iickGI2NwcfR0muJMkMo8yIf8f8S9yWc2rq18lRNC4qJfxjuvpO+HSOMinw==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "47036e01-bbf6-4e21-a8c2-224142499baa",
+                            SecurityStamp = "813bfc80-1c81-4e2c-95c1-6f6d25c729a5",
                             TwoFactorEnabled = false,
-                            UserName = "Adminastrator"
+                            UserName = "Charlie"
+                        },
+                        new
+                        {
+                            Id = "frt98wr5-0223-3ww7-t6rq-028g4r521d4e",
+                            AccessFailedCount = 0,
+                            ConcurrencyStamp = "5fb0a88e-9353-416a-9e00-404f890b06bf",
+                            Email = "frank@reynolds.com",
+                            EmailConfirmed = false,
+                            LockoutEnabled = false,
+                            PasswordHash = "AQAAAAIAAYagAAAAEKSJFz+HOytkmYxFY64ekeH2Lx5xELXX3bDXet4tCkp0LVxNhIewdsAfKJld3Jd3CQ==",
+                            PhoneNumberConfirmed = false,
+                            SecurityStamp = "706fb67c-a7b6-4b9e-9192-92ac8bc2348b",
+                            TwoFactorEnabled = false,
+                            UserName = "Frank"
+                        },
+                        new
+                        {
+                            Id = "hdp65oa9-3053-5ap0-z0hh-235t2a098h8q",
+                            AccessFailedCount = 0,
+                            ConcurrencyStamp = "4f897d4a-9265-4dbb-90c3-7a90e968250a",
+                            Email = "mac@mcdonald.com",
+                            EmailConfirmed = false,
+                            LockoutEnabled = false,
+                            PasswordHash = "AQAAAAIAAYagAAAAEN1JhwhX0Pu5g8QIN+fCfTomgH0OIJCRJ5MUhdJy7yx/kfcFx0qwXg3rFGaP6NYiaA==",
+                            PhoneNumberConfirmed = false,
+                            SecurityStamp = "2acf2ad6-8a68-4712-9ee2-aba7e88f8094",
+                            TwoFactorEnabled = false,
+                            UserName = "Mac"
                         });
                 });
 
