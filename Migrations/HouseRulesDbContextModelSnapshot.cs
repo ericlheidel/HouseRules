@@ -37,7 +37,8 @@ namespace HouseRules.Migrations
                         .HasColumnType("integer");
 
                     b.Property<string>("Name")
-                        .HasColumnType("text");
+                        .HasMaxLength(100)
+                        .HasColumnType("character varying(100)");
 
                     b.HasKey("Id");
 
@@ -96,7 +97,7 @@ namespace HouseRules.Migrations
                         new
                         {
                             Id = 8,
-                            ChoreFrequencyDays = 30,
+                            ChoreFrequencyDays = 12,
                             Difficulty = 5,
                             Name = "Clean Windows"
                         },
@@ -124,7 +125,7 @@ namespace HouseRules.Migrations
                         new
                         {
                             Id = 12,
-                            ChoreFrequencyDays = 60,
+                            ChoreFrequencyDays = 14,
                             Difficulty = 5,
                             Name = "Organize Pantry"
                         });
@@ -176,6 +177,54 @@ namespace HouseRules.Migrations
                             Id = 4,
                             ChoreId = 4,
                             UserProfileId = 1
+                        },
+                        new
+                        {
+                            Id = 5,
+                            ChoreId = 5,
+                            UserProfileId = 1
+                        },
+                        new
+                        {
+                            Id = 6,
+                            ChoreId = 6,
+                            UserProfileId = 1
+                        },
+                        new
+                        {
+                            Id = 7,
+                            ChoreId = 7,
+                            UserProfileId = 1
+                        },
+                        new
+                        {
+                            Id = 8,
+                            ChoreId = 8,
+                            UserProfileId = 1
+                        },
+                        new
+                        {
+                            Id = 9,
+                            ChoreId = 9,
+                            UserProfileId = 1
+                        },
+                        new
+                        {
+                            Id = 10,
+                            ChoreId = 10,
+                            UserProfileId = 1
+                        },
+                        new
+                        {
+                            Id = 11,
+                            ChoreId = 11,
+                            UserProfileId = 1
+                        },
+                        new
+                        {
+                            Id = 12,
+                            ChoreId = 12,
+                            UserProfileId = 1
                         });
                 });
 
@@ -209,14 +258,14 @@ namespace HouseRules.Migrations
                         {
                             Id = 1,
                             ChoreId = 11,
-                            CompletedOn = new DateTime(2024, 6, 11, 15, 48, 58, 694, DateTimeKind.Local).AddTicks(2450),
+                            CompletedOn = new DateTime(2024, 6, 12, 13, 55, 57, 625, DateTimeKind.Local).AddTicks(7620),
                             UserProfileId = 1
                         },
                         new
                         {
                             Id = 2,
                             ChoreId = 12,
-                            CompletedOn = new DateTime(2024, 6, 2, 15, 48, 58, 694, DateTimeKind.Local).AddTicks(2560),
+                            CompletedOn = new DateTime(2024, 6, 3, 13, 55, 57, 625, DateTimeKind.Local).AddTicks(7710),
                             UserProfileId = 1
                         });
                 });
@@ -245,7 +294,8 @@ namespace HouseRules.Migrations
                         .HasColumnType("text");
 
                     b.Property<string>("UserName")
-                        .HasColumnType("text");
+                        .HasMaxLength(50)
+                        .HasColumnType("character varying(50)");
 
                     b.HasKey("Id");
 
@@ -413,13 +463,13 @@ namespace HouseRules.Migrations
                         {
                             Id = "dbc40bc6-0829-4ac5-a3ed-180f5e916a5f",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "5286f8d0-7705-4b26-bab9-46f9d6f4ffd8",
+                            ConcurrencyStamp = "9d10e119-adbc-496b-bb15-558df2522859",
                             Email = "charlie@kelly.com",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
-                            PasswordHash = "AQAAAAIAAYagAAAAEJ8O5A8iickGI2NwcfR0muJMkMo8yIf8f8S9yWc2rq18lRNC4qJfxjuvpO+HSOMinw==",
+                            PasswordHash = "AQAAAAIAAYagAAAAENn/nUNwCdsrl4GFXW38jc0Ku0/3R/PBhkeLgtRkPbuR7ihuYzzuQI85Wxd7xMC6aA==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "813bfc80-1c81-4e2c-95c1-6f6d25c729a5",
+                            SecurityStamp = "152cb5a3-9c80-4d44-a7e9-7d69fe01f304",
                             TwoFactorEnabled = false,
                             UserName = "Charlie"
                         },
@@ -427,13 +477,13 @@ namespace HouseRules.Migrations
                         {
                             Id = "frt98wr5-0223-3ww7-t6rq-028g4r521d4e",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "5fb0a88e-9353-416a-9e00-404f890b06bf",
+                            ConcurrencyStamp = "949a1d34-e51f-47e4-8104-3c11bf524e49",
                             Email = "frank@reynolds.com",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
-                            PasswordHash = "AQAAAAIAAYagAAAAEKSJFz+HOytkmYxFY64ekeH2Lx5xELXX3bDXet4tCkp0LVxNhIewdsAfKJld3Jd3CQ==",
+                            PasswordHash = "AQAAAAIAAYagAAAAELA+pEL8cBNcpaiXUQehtTQ0eMMJ0yOja498ORC9ub2xGGIGgYgNqac0uq4dI7NU/Q==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "706fb67c-a7b6-4b9e-9192-92ac8bc2348b",
+                            SecurityStamp = "625fa283-2ec8-42ad-9ae3-c38adcf45543",
                             TwoFactorEnabled = false,
                             UserName = "Frank"
                         },
@@ -441,13 +491,13 @@ namespace HouseRules.Migrations
                         {
                             Id = "hdp65oa9-3053-5ap0-z0hh-235t2a098h8q",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "4f897d4a-9265-4dbb-90c3-7a90e968250a",
+                            ConcurrencyStamp = "1efb537e-1082-4630-86b1-18c4c25099bf",
                             Email = "mac@mcdonald.com",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
-                            PasswordHash = "AQAAAAIAAYagAAAAEN1JhwhX0Pu5g8QIN+fCfTomgH0OIJCRJ5MUhdJy7yx/kfcFx0qwXg3rFGaP6NYiaA==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEJcofteF8LOD1JcoVkJTdKX0+dz9TF/YhmsUwJux3TkA5+PRwcXOSZGZOqbXZ4NMkw==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "2acf2ad6-8a68-4712-9ee2-aba7e88f8094",
+                            SecurityStamp = "aac29d79-f5ea-46a3-badb-f8dbcd974a10",
                             TwoFactorEnabled = false,
                             UserName = "Mac"
                         });

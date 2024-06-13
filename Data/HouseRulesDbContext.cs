@@ -153,7 +153,7 @@ public class HouseRulesDbContext : IdentityDbContext<IdentityUser>
                 Id = 8,
                 Name = "Clean Windows",
                 Difficulty = 5,
-                ChoreFrequencyDays = 30
+                ChoreFrequencyDays = 12
             },
             new Chore
             {
@@ -181,7 +181,7 @@ public class HouseRulesDbContext : IdentityDbContext<IdentityUser>
                 Id = 12,
                 Name = "Organize Pantry",
                 Difficulty = 5,
-                ChoreFrequencyDays = 60
+                ChoreFrequencyDays = 14
             }
         });
 
@@ -210,7 +210,55 @@ public class HouseRulesDbContext : IdentityDbContext<IdentityUser>
                 Id = 4,
                 UserProfileId = 1,
                 ChoreId = 4
-            }
+            },
+            new ChoreAssignment
+            {
+                Id = 5,
+                UserProfileId = 1,
+                ChoreId = 5
+            },
+            new ChoreAssignment
+            {
+                Id = 6,
+                UserProfileId = 1,
+                ChoreId = 6
+            },
+            new ChoreAssignment
+            {
+                Id = 7,
+                UserProfileId = 1,
+                ChoreId = 7
+            },
+            new ChoreAssignment
+            {
+                Id = 8,
+                UserProfileId = 1,
+                ChoreId = 8
+            },
+            new ChoreAssignment
+            {
+                Id = 9,
+                UserProfileId = 1,
+                ChoreId = 9
+            },
+            new ChoreAssignment
+            {
+                Id = 10,
+                UserProfileId = 1,
+                ChoreId = 10
+            },
+            new ChoreAssignment
+            {
+                Id = 11,
+                UserProfileId = 1,
+                ChoreId = 11
+            },
+            new ChoreAssignment
+            {
+                Id = 12,
+                UserProfileId = 1,
+                ChoreId = 12
+            },
         });
 
         modelBuilder.Entity<ChoreCompletion>().HasData(new ChoreCompletion[]

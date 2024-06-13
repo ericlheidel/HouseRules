@@ -59,7 +59,7 @@ namespace HouseRules.Migrations
                 {
                     Id = table.Column<int>(type: "integer", nullable: false)
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
-                    Name = table.Column<string>(type: "text", nullable: true),
+                    Name = table.Column<string>(type: "character varying(100)", maxLength: 100, nullable: true),
                     Difficulty = table.Column<int>(type: "integer", nullable: false),
                     ChoreFrequencyDays = table.Column<int>(type: "integer", nullable: false)
                 },
@@ -183,7 +183,7 @@ namespace HouseRules.Migrations
                     FirstName = table.Column<string>(type: "text", nullable: true),
                     LastName = table.Column<string>(type: "text", nullable: true),
                     Address = table.Column<string>(type: "text", nullable: true),
-                    UserName = table.Column<string>(type: "text", nullable: true),
+                    UserName = table.Column<string>(type: "character varying(50)", maxLength: 50, nullable: true),
                     Email = table.Column<string>(type: "text", nullable: true),
                     IdentityUserId = table.Column<string>(type: "text", nullable: true)
                 },
@@ -260,9 +260,9 @@ namespace HouseRules.Migrations
                 columns: new[] { "Id", "AccessFailedCount", "ConcurrencyStamp", "Email", "EmailConfirmed", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UserName" },
                 values: new object[,]
                 {
-                    { "dbc40bc6-0829-4ac5-a3ed-180f5e916a5f", 0, "5286f8d0-7705-4b26-bab9-46f9d6f4ffd8", "charlie@kelly.com", false, false, null, null, null, "AQAAAAIAAYagAAAAEJ8O5A8iickGI2NwcfR0muJMkMo8yIf8f8S9yWc2rq18lRNC4qJfxjuvpO+HSOMinw==", null, false, "813bfc80-1c81-4e2c-95c1-6f6d25c729a5", false, "Charlie" },
-                    { "frt98wr5-0223-3ww7-t6rq-028g4r521d4e", 0, "5fb0a88e-9353-416a-9e00-404f890b06bf", "frank@reynolds.com", false, false, null, null, null, "AQAAAAIAAYagAAAAEKSJFz+HOytkmYxFY64ekeH2Lx5xELXX3bDXet4tCkp0LVxNhIewdsAfKJld3Jd3CQ==", null, false, "706fb67c-a7b6-4b9e-9192-92ac8bc2348b", false, "Frank" },
-                    { "hdp65oa9-3053-5ap0-z0hh-235t2a098h8q", 0, "4f897d4a-9265-4dbb-90c3-7a90e968250a", "mac@mcdonald.com", false, false, null, null, null, "AQAAAAIAAYagAAAAEN1JhwhX0Pu5g8QIN+fCfTomgH0OIJCRJ5MUhdJy7yx/kfcFx0qwXg3rFGaP6NYiaA==", null, false, "2acf2ad6-8a68-4712-9ee2-aba7e88f8094", false, "Mac" }
+                    { "dbc40bc6-0829-4ac5-a3ed-180f5e916a5f", 0, "9d10e119-adbc-496b-bb15-558df2522859", "charlie@kelly.com", false, false, null, null, null, "AQAAAAIAAYagAAAAENn/nUNwCdsrl4GFXW38jc0Ku0/3R/PBhkeLgtRkPbuR7ihuYzzuQI85Wxd7xMC6aA==", null, false, "152cb5a3-9c80-4d44-a7e9-7d69fe01f304", false, "Charlie" },
+                    { "frt98wr5-0223-3ww7-t6rq-028g4r521d4e", 0, "949a1d34-e51f-47e4-8104-3c11bf524e49", "frank@reynolds.com", false, false, null, null, null, "AQAAAAIAAYagAAAAELA+pEL8cBNcpaiXUQehtTQ0eMMJ0yOja498ORC9ub2xGGIGgYgNqac0uq4dI7NU/Q==", null, false, "625fa283-2ec8-42ad-9ae3-c38adcf45543", false, "Frank" },
+                    { "hdp65oa9-3053-5ap0-z0hh-235t2a098h8q", 0, "1efb537e-1082-4630-86b1-18c4c25099bf", "mac@mcdonald.com", false, false, null, null, null, "AQAAAAIAAYagAAAAEJcofteF8LOD1JcoVkJTdKX0+dz9TF/YhmsUwJux3TkA5+PRwcXOSZGZOqbXZ4NMkw==", null, false, "aac29d79-f5ea-46a3-badb-f8dbcd974a10", false, "Mac" }
                 });
 
             migrationBuilder.InsertData(
@@ -277,11 +277,11 @@ namespace HouseRules.Migrations
                     { 5, 7, 4, "Mow Lawn" },
                     { 6, 3, 2, "Do Laundry" },
                     { 7, 1, 2, "Cook Dinner" },
-                    { 8, 30, 5, "Clean Windows" },
+                    { 8, 12, 5, "Clean Windows" },
                     { 9, 7, 1, "Dust Furniture" },
                     { 10, 14, 2, "Sweep Garage" },
                     { 11, 3, 1, "Water Plants" },
-                    { 12, 60, 5, "Organize Pantry" }
+                    { 12, 14, 5, "Organize Pantry" }
                 });
 
             migrationBuilder.InsertData(
@@ -307,7 +307,15 @@ namespace HouseRules.Migrations
                     { 1, 1, 1 },
                     { 2, 2, 1 },
                     { 3, 3, 1 },
-                    { 4, 4, 1 }
+                    { 4, 4, 1 },
+                    { 5, 5, 1 },
+                    { 6, 6, 1 },
+                    { 7, 7, 1 },
+                    { 8, 8, 1 },
+                    { 9, 9, 1 },
+                    { 10, 10, 1 },
+                    { 11, 11, 1 },
+                    { 12, 12, 1 }
                 });
 
             migrationBuilder.InsertData(
@@ -315,8 +323,8 @@ namespace HouseRules.Migrations
                 columns: new[] { "Id", "ChoreId", "CompletedOn", "UserProfileId" },
                 values: new object[,]
                 {
-                    { 1, 11, new DateTime(2024, 6, 11, 15, 48, 58, 694, DateTimeKind.Local).AddTicks(2450), 1 },
-                    { 2, 12, new DateTime(2024, 6, 2, 15, 48, 58, 694, DateTimeKind.Local).AddTicks(2560), 1 }
+                    { 1, 11, new DateTime(2024, 6, 12, 13, 55, 57, 625, DateTimeKind.Local).AddTicks(7620), 1 },
+                    { 2, 12, new DateTime(2024, 6, 3, 13, 55, 57, 625, DateTimeKind.Local).AddTicks(7710), 1 }
                 });
 
             migrationBuilder.CreateIndex(

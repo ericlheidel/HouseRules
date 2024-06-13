@@ -14,7 +14,7 @@ export const CreateChore = () => {
   const [difficulty, setDifficulty] = useState(0)
   const [frequency, setFrequency] = useState(0)
 
-  const [errors, setErrors] = useState("")
+  const [errors, setErrors] = useState({})
 
   const navigate = useNavigate()
 
@@ -32,18 +32,22 @@ export const CreateChore = () => {
   //   })
   // }
 
+  // hfdsakjhfdaskfhdksajfhaksdjlhfkadsjlfhksjahfkdjsahfaskjdhfkjfdhsafkjasdhfdkjsfhksjadhfkadljhfsakjhfkjdashfkajsdhfksjdfhkdsdfhkjsahfsdkjhfaksdfjhsakdh`5`
+
   const handleCreateChore = (evt) => {
     evt.preventDefault()
+
     const newChore = {
       name: choreName,
       difficulty: parseInt(difficulty),
       choreFrequencyDays: parseInt(frequency),
     }
+
     createChore(newChore).then((res) => {
       if (res.errors) {
         setErrors(res.errors)
       } else {
-        navigate("/chores/create")
+        navigate("/chores")
       }
     })
   }
@@ -64,9 +68,7 @@ export const CreateChore = () => {
       <div style={{ color: "red" }}>
         {errors &&
           Object.keys(errors).map((key) => (
-            <p key={key}>
-              {key}: {errors[key].join(",")}
-            </p>
+            <p key={key}>{errors[key].join(",")}</p>
           ))}
       </div>
       <Form>
@@ -89,6 +91,13 @@ export const CreateChore = () => {
             id="frequency"
             onChange={handleFrequencyChange}
           />
+          <datalist id="frequencyOptions">
+            <option value="1" />
+            <option value="3" />
+            <option value="7" />
+            <option value="10" />
+            <option value="14" />
+          </datalist>
         </FormGroup>
         <FormGroup>
           <Button type="submit" color="primary" onClick={handleCreateChore}>

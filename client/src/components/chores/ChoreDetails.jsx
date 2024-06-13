@@ -1,11 +1,12 @@
 import { useEffect, useState } from "react"
-import { useParams } from "react-router-dom"
+import { useNavigate, useParams } from "react-router-dom"
 import {
   assignChore,
   getChoreById,
   unassignChore,
+  updateChore,
 } from "../../managers/choreManager.js"
-import { Card, Input } from "reactstrap"
+import { Button, Card, Input } from "reactstrap"
 import moment from "moment"
 import { getUserProfiles } from "../../managers/userProfileManager.js"
 
@@ -13,7 +14,13 @@ export const ChoreDetails = () => {
   const [chore, setChore] = useState([])
   const [users, setUsers] = useState([])
 
+  const [updatedName, setUpdatedName] = useState("")
+  const [updatedDifficulty, setUpdatedDifficulty] = useState(0)
+  const [updatedFrequency, setUpdatedFrequency] = useState(0)
+
   const { id } = useParams()
+
+  const navigate = useNavigate()
 
   const getAndResetChores = () => {
     getChoreById(id).then(setChore)
@@ -37,26 +44,54 @@ export const ChoreDetails = () => {
     }
   }
 
+  const handleUpdateChore = () => {
+    const updatedChore = {
+      name: updatedName !== "" ? updatedName : chore.name,
+      difficulty:
+        updatedDifficulty !== 0 ? updatedDifficulty : chore.difficulty,
+      choreFrequencyDays:
+        updatedFrequency !== 0 ? updatedFrequency : chore.choreFrequencyDays,
+    }
+
+    updateChore(chore.id, updatedChore).then(() => {
+      navigate("/chores")
+    })
+  }
+
   return (
     <Card key={chore.id}>
-      <h2>
-        <u>{chore.name}</u>
-      </h2>
-      <h3>
-        Difficulty{" - "}
-        <b>
-          {chore.difficulty == 1 && "Easy"}
-          {chore.difficulty == 2 && "Easy-Medium"}
-          {chore.difficulty == 3 && "Medium"}
-          {chore.difficulty == 4 && "Medium-Hard"}
-          {chore.difficulty == 5 && "Hard"}
-        </b>
-      </h3>
-      <h3>
-        Frequency{" - "}
-        {chore.choreFrequencyDays}
-        {chore.choreFrequencyDays == 1 ? " Day" : " Days"}
-      </h3>
+      <h3>Chore:</h3>
+      <fieldset>
+        <Input
+          type="text"
+          defaultValue={chore.name}
+          onChange={(e) => {
+            setUpdatedName(e.target.value)
+          }}
+        />
+      </fieldset>
+      <div>
+        <h3>Difficulty:</h3>
+        <fieldset>
+          <Input
+            type="number"
+            defaultValue={chore.difficulty}
+            onChange={(e) => {
+              setUpdatedDifficulty(e.target.value)
+            }}
+          />
+        </fieldset>
+      </div>
+      <fieldset>
+        <h3>Frequency (Days):</h3>
+        <Input
+          type="number"
+          defaultValue={chore.choreFrequencyDays}
+          onChange={(e) => {
+            setUpdatedFrequency(e.target.value)
+          }}
+        />
+      </fieldset>
       <h3 className="mt-3`">
         {chore.choreCompletions?.length > 0 && (
           <div className="mt-3">
@@ -86,7 +121,6 @@ export const ChoreDetails = () => {
               <div>
                 <h3>
                   <Input
-                    // checked={isUserAssigned(u.id)}
                     defaultChecked={chore.choreAssignments?.some(
                       (ca) => ca.userProfile.id === u.id
                     )}
@@ -104,6 +138,9 @@ export const ChoreDetails = () => {
           )
         })}
       </div>
+      <Button color="primary" className="mt-3" onClick={handleUpdateChore}>
+        Submit
+      </Button>
     </Card>
   )
 }
