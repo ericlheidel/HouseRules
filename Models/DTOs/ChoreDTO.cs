@@ -14,4 +14,23 @@ public class ChoreDTO
     public int ChoreFrequencyDays { get; set; }
     public List<ChoreCompletionDTO>? ChoreCompletions { get; set; }
     public List<ChoreAssignmentDTO>? ChoreAssignments { get; set; }
+    public bool Overdue
+    {
+        get
+        {
+            if (ChoreCompletions == null || !ChoreCompletions.Any())
+            {
+                return false;
+            }
+            // when was the last day the chore was completed?
+            DateTime mostRecentCompletionDate = ChoreCompletions.Max(cc => cc.CompletedOn);
+
+            // when is the next day the chore is due to be completed?
+            DateTime nextDueDate = mostRecentCompletionDate.AddDays(ChoreFrequencyDays).Date;
+
+            // if the next due date is less than today, then the due date is in the past and therefore Overdue: true
+            // if the next due date is greater than today, then the due date is in the future, and therefore Overdue: false
+            return nextDueDate < DateTime.Today;
+        }
+    }
 }

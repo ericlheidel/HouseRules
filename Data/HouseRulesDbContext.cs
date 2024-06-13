@@ -267,15 +267,85 @@ public class HouseRulesDbContext : IdentityDbContext<IdentityUser>
             {
                 Id = 1,
                 UserProfileId = 1,
-                ChoreId = 11,
+                ChoreId = 1,
                 CompletedOn = DateTime.Now.AddDays(-1)
             },
             new ChoreCompletion
             {
                 Id = 2,
                 UserProfileId = 1,
-                ChoreId = 12,
+                ChoreId = 2,
+                CompletedOn = DateTime.Now.AddDays(-2)
+            },
+            new ChoreCompletion
+            {
+                Id = 3,
+                UserProfileId = 1,
+                ChoreId = 3,
+                CompletedOn = DateTime.Now.AddDays(-3)
+            },
+            new ChoreCompletion
+            {
+                Id = 4,
+                UserProfileId = 1,
+                ChoreId = 4,
+                CompletedOn = DateTime.Now.AddDays(-4)
+            },
+            new ChoreCompletion
+            {
+                Id = 5,
+                UserProfileId = 1,
+                ChoreId = 5,
+                CompletedOn = DateTime.Now.AddDays(-5)
+            },
+            new ChoreCompletion
+            {
+                Id = 6,
+                UserProfileId = 1,
+                ChoreId = 6,
+                CompletedOn = DateTime.Now.AddDays(-6)
+            },
+            new ChoreCompletion
+            {
+                Id = 7,
+                UserProfileId = 1,
+                ChoreId = 7,
+                CompletedOn = DateTime.Now.AddDays(-7)
+            },
+            new ChoreCompletion
+            {
+                Id = 8,
+                UserProfileId = 1,
+                ChoreId = 8,
+                CompletedOn = DateTime.Now.AddDays(-8)
+            },
+            new ChoreCompletion
+            {
+                Id = 9,
+                UserProfileId = 1,
+                ChoreId = 9,
+                CompletedOn = DateTime.Now.AddDays(-9)
+            },
+            new ChoreCompletion
+            {
+                Id = 10,
+                UserProfileId = 1,
+                ChoreId = 10,
                 CompletedOn = DateTime.Now.AddDays(-10)
+            },
+            new ChoreCompletion
+            {
+                Id = 11,
+                UserProfileId = 1,
+                ChoreId = 11,
+                CompletedOn = DateTime.Now.AddDays(-11)
+            },
+            new ChoreCompletion
+            {
+                Id = 12,
+                UserProfileId = 1,
+                ChoreId = 12,
+                CompletedOn = DateTime.Now.AddDays(-12)
             }
         });
     }

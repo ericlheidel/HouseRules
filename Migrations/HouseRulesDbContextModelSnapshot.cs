@@ -257,15 +257,85 @@ namespace HouseRules.Migrations
                         new
                         {
                             Id = 1,
-                            ChoreId = 11,
-                            CompletedOn = new DateTime(2024, 6, 12, 13, 55, 57, 625, DateTimeKind.Local).AddTicks(7620),
+                            ChoreId = 1,
+                            CompletedOn = new DateTime(2024, 6, 12, 14, 17, 8, 746, DateTimeKind.Local).AddTicks(6800),
                             UserProfileId = 1
                         },
                         new
                         {
                             Id = 2,
+                            ChoreId = 2,
+                            CompletedOn = new DateTime(2024, 6, 11, 14, 17, 8, 746, DateTimeKind.Local).AddTicks(6890),
+                            UserProfileId = 1
+                        },
+                        new
+                        {
+                            Id = 3,
+                            ChoreId = 3,
+                            CompletedOn = new DateTime(2024, 6, 10, 14, 17, 8, 746, DateTimeKind.Local).AddTicks(6900),
+                            UserProfileId = 1
+                        },
+                        new
+                        {
+                            Id = 4,
+                            ChoreId = 4,
+                            CompletedOn = new DateTime(2024, 6, 9, 14, 17, 8, 746, DateTimeKind.Local).AddTicks(6910),
+                            UserProfileId = 1
+                        },
+                        new
+                        {
+                            Id = 5,
+                            ChoreId = 5,
+                            CompletedOn = new DateTime(2024, 6, 8, 14, 17, 8, 746, DateTimeKind.Local).AddTicks(6920),
+                            UserProfileId = 1
+                        },
+                        new
+                        {
+                            Id = 6,
+                            ChoreId = 6,
+                            CompletedOn = new DateTime(2024, 6, 7, 14, 17, 8, 746, DateTimeKind.Local).AddTicks(6920),
+                            UserProfileId = 1
+                        },
+                        new
+                        {
+                            Id = 7,
+                            ChoreId = 7,
+                            CompletedOn = new DateTime(2024, 6, 6, 14, 17, 8, 746, DateTimeKind.Local).AddTicks(6930),
+                            UserProfileId = 1
+                        },
+                        new
+                        {
+                            Id = 8,
+                            ChoreId = 8,
+                            CompletedOn = new DateTime(2024, 6, 5, 14, 17, 8, 746, DateTimeKind.Local).AddTicks(6930),
+                            UserProfileId = 1
+                        },
+                        new
+                        {
+                            Id = 9,
+                            ChoreId = 9,
+                            CompletedOn = new DateTime(2024, 6, 4, 14, 17, 8, 746, DateTimeKind.Local).AddTicks(6930),
+                            UserProfileId = 1
+                        },
+                        new
+                        {
+                            Id = 10,
+                            ChoreId = 10,
+                            CompletedOn = new DateTime(2024, 6, 3, 14, 17, 8, 746, DateTimeKind.Local).AddTicks(6940),
+                            UserProfileId = 1
+                        },
+                        new
+                        {
+                            Id = 11,
+                            ChoreId = 11,
+                            CompletedOn = new DateTime(2024, 6, 2, 14, 17, 8, 746, DateTimeKind.Local).AddTicks(6950),
+                            UserProfileId = 1
+                        },
+                        new
+                        {
+                            Id = 12,
                             ChoreId = 12,
-                            CompletedOn = new DateTime(2024, 6, 3, 13, 55, 57, 625, DateTimeKind.Local).AddTicks(7710),
+                            CompletedOn = new DateTime(2024, 6, 1, 14, 17, 8, 746, DateTimeKind.Local).AddTicks(6950),
                             UserProfileId = 1
                         });
                 });
@@ -463,13 +533,13 @@ namespace HouseRules.Migrations
                         {
                             Id = "dbc40bc6-0829-4ac5-a3ed-180f5e916a5f",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "9d10e119-adbc-496b-bb15-558df2522859",
+                            ConcurrencyStamp = "80806b6a-b9d4-434d-98bc-cfbb6ad6244b",
                             Email = "charlie@kelly.com",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
-                            PasswordHash = "AQAAAAIAAYagAAAAENn/nUNwCdsrl4GFXW38jc0Ku0/3R/PBhkeLgtRkPbuR7ihuYzzuQI85Wxd7xMC6aA==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEKM3IEnoaOIeyo8tfwuMEC0tYkOhNDcjMirelQqvH4p0HJbPhBiTexTIRnZJzD4G5A==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "152cb5a3-9c80-4d44-a7e9-7d69fe01f304",
+                            SecurityStamp = "7d8be9d6-7653-48dc-9492-114eae55fd31",
                             TwoFactorEnabled = false,
                             UserName = "Charlie"
                         },
@@ -477,13 +547,13 @@ namespace HouseRules.Migrations
                         {
                             Id = "frt98wr5-0223-3ww7-t6rq-028g4r521d4e",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "949a1d34-e51f-47e4-8104-3c11bf524e49",
+                            ConcurrencyStamp = "4bdff836-dab5-4072-8d2f-d69b4f24a9ef",
                             Email = "frank@reynolds.com",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
-                            PasswordHash = "AQAAAAIAAYagAAAAELA+pEL8cBNcpaiXUQehtTQ0eMMJ0yOja498ORC9ub2xGGIGgYgNqac0uq4dI7NU/Q==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEKQo6XpngyFI5atTS0Ou7125LvRqGVCAR9bJvTks8hy53cBvoUYdxAHmJ+3/sU3nXg==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "625fa283-2ec8-42ad-9ae3-c38adcf45543",
+                            SecurityStamp = "c34f5625-0797-43e7-ad08-abccee5b1b63",
                             TwoFactorEnabled = false,
                             UserName = "Frank"
                         },
@@ -491,13 +561,13 @@ namespace HouseRules.Migrations
                         {
                             Id = "hdp65oa9-3053-5ap0-z0hh-235t2a098h8q",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "1efb537e-1082-4630-86b1-18c4c25099bf",
+                            ConcurrencyStamp = "87263e70-21a7-4ed5-965c-64a562553b0e",
                             Email = "mac@mcdonald.com",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
-                            PasswordHash = "AQAAAAIAAYagAAAAEJcofteF8LOD1JcoVkJTdKX0+dz9TF/YhmsUwJux3TkA5+PRwcXOSZGZOqbXZ4NMkw==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEDKflJsRSZpe9cDJ852ufL1RyqON6ZzRCdSyv+YS0uWW/gtb7A78ZR5OKBSIXwy0Zw==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "aac29d79-f5ea-46a3-badb-f8dbcd974a10",
+                            SecurityStamp = "827a73e7-76a5-435d-875f-a028d54b4ea2",
                             TwoFactorEnabled = false,
                             UserName = "Mac"
                         });

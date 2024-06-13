@@ -42,9 +42,15 @@ export const ChoresList = ({ loggedInUser }) => {
       {chores.map((c) => {
         return (
           <Card key={c.id} className="mt-3">
-            <h2>
-              <u>{c.name}</u>
-            </h2>
+            {c.overdue === true ? (
+              <h2>
+                <u style={{ color: "red" }}>{c.name}</u>
+              </h2>
+            ) : (
+              <h2>
+                <u>{c.name}</u>
+              </h2>
+            )}
             <h3>
               Difficulty{" - "}
               <b>

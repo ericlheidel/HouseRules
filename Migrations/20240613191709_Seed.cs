@@ -260,9 +260,9 @@ namespace HouseRules.Migrations
                 columns: new[] { "Id", "AccessFailedCount", "ConcurrencyStamp", "Email", "EmailConfirmed", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UserName" },
                 values: new object[,]
                 {
-                    { "dbc40bc6-0829-4ac5-a3ed-180f5e916a5f", 0, "9d10e119-adbc-496b-bb15-558df2522859", "charlie@kelly.com", false, false, null, null, null, "AQAAAAIAAYagAAAAENn/nUNwCdsrl4GFXW38jc0Ku0/3R/PBhkeLgtRkPbuR7ihuYzzuQI85Wxd7xMC6aA==", null, false, "152cb5a3-9c80-4d44-a7e9-7d69fe01f304", false, "Charlie" },
-                    { "frt98wr5-0223-3ww7-t6rq-028g4r521d4e", 0, "949a1d34-e51f-47e4-8104-3c11bf524e49", "frank@reynolds.com", false, false, null, null, null, "AQAAAAIAAYagAAAAELA+pEL8cBNcpaiXUQehtTQ0eMMJ0yOja498ORC9ub2xGGIGgYgNqac0uq4dI7NU/Q==", null, false, "625fa283-2ec8-42ad-9ae3-c38adcf45543", false, "Frank" },
-                    { "hdp65oa9-3053-5ap0-z0hh-235t2a098h8q", 0, "1efb537e-1082-4630-86b1-18c4c25099bf", "mac@mcdonald.com", false, false, null, null, null, "AQAAAAIAAYagAAAAEJcofteF8LOD1JcoVkJTdKX0+dz9TF/YhmsUwJux3TkA5+PRwcXOSZGZOqbXZ4NMkw==", null, false, "aac29d79-f5ea-46a3-badb-f8dbcd974a10", false, "Mac" }
+                    { "dbc40bc6-0829-4ac5-a3ed-180f5e916a5f", 0, "80806b6a-b9d4-434d-98bc-cfbb6ad6244b", "charlie@kelly.com", false, false, null, null, null, "AQAAAAIAAYagAAAAEKM3IEnoaOIeyo8tfwuMEC0tYkOhNDcjMirelQqvH4p0HJbPhBiTexTIRnZJzD4G5A==", null, false, "7d8be9d6-7653-48dc-9492-114eae55fd31", false, "Charlie" },
+                    { "frt98wr5-0223-3ww7-t6rq-028g4r521d4e", 0, "4bdff836-dab5-4072-8d2f-d69b4f24a9ef", "frank@reynolds.com", false, false, null, null, null, "AQAAAAIAAYagAAAAEKQo6XpngyFI5atTS0Ou7125LvRqGVCAR9bJvTks8hy53cBvoUYdxAHmJ+3/sU3nXg==", null, false, "c34f5625-0797-43e7-ad08-abccee5b1b63", false, "Frank" },
+                    { "hdp65oa9-3053-5ap0-z0hh-235t2a098h8q", 0, "87263e70-21a7-4ed5-965c-64a562553b0e", "mac@mcdonald.com", false, false, null, null, null, "AQAAAAIAAYagAAAAEDKflJsRSZpe9cDJ852ufL1RyqON6ZzRCdSyv+YS0uWW/gtb7A78ZR5OKBSIXwy0Zw==", null, false, "827a73e7-76a5-435d-875f-a028d54b4ea2", false, "Mac" }
                 });
 
             migrationBuilder.InsertData(
@@ -323,8 +323,18 @@ namespace HouseRules.Migrations
                 columns: new[] { "Id", "ChoreId", "CompletedOn", "UserProfileId" },
                 values: new object[,]
                 {
-                    { 1, 11, new DateTime(2024, 6, 12, 13, 55, 57, 625, DateTimeKind.Local).AddTicks(7620), 1 },
-                    { 2, 12, new DateTime(2024, 6, 3, 13, 55, 57, 625, DateTimeKind.Local).AddTicks(7710), 1 }
+                    { 1, 1, new DateTime(2024, 6, 12, 14, 17, 8, 746, DateTimeKind.Local).AddTicks(6800), 1 },
+                    { 2, 2, new DateTime(2024, 6, 11, 14, 17, 8, 746, DateTimeKind.Local).AddTicks(6890), 1 },
+                    { 3, 3, new DateTime(2024, 6, 10, 14, 17, 8, 746, DateTimeKind.Local).AddTicks(6900), 1 },
+                    { 4, 4, new DateTime(2024, 6, 9, 14, 17, 8, 746, DateTimeKind.Local).AddTicks(6910), 1 },
+                    { 5, 5, new DateTime(2024, 6, 8, 14, 17, 8, 746, DateTimeKind.Local).AddTicks(6920), 1 },
+                    { 6, 6, new DateTime(2024, 6, 7, 14, 17, 8, 746, DateTimeKind.Local).AddTicks(6920), 1 },
+                    { 7, 7, new DateTime(2024, 6, 6, 14, 17, 8, 746, DateTimeKind.Local).AddTicks(6930), 1 },
+                    { 8, 8, new DateTime(2024, 6, 5, 14, 17, 8, 746, DateTimeKind.Local).AddTicks(6930), 1 },
+                    { 9, 9, new DateTime(2024, 6, 4, 14, 17, 8, 746, DateTimeKind.Local).AddTicks(6930), 1 },
+                    { 10, 10, new DateTime(2024, 6, 3, 14, 17, 8, 746, DateTimeKind.Local).AddTicks(6940), 1 },
+                    { 11, 11, new DateTime(2024, 6, 2, 14, 17, 8, 746, DateTimeKind.Local).AddTicks(6950), 1 },
+                    { 12, 12, new DateTime(2024, 6, 1, 14, 17, 8, 746, DateTimeKind.Local).AddTicks(6950), 1 }
                 });
 
             migrationBuilder.CreateIndex(
